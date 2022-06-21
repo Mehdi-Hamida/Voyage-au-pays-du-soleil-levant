@@ -1,0 +1,385 @@
+@font-face {
+    font-family: 'Harukaze';
+    src: url(/font/Harukaze.ttf);
+}
+
+@font-face {
+    font-family: 'Karasha';
+    src: url(/font/Karasha.otf);
+}
+
+@font-face {
+    font-family: 'Khiara';
+    src: url(/font/Khiara.ttf);
+}
+
+@font-face {
+    font-family: 'DersuUzalaBrush';
+    src: url(/font/DersuUzalaBrush.ttf);
+}
+
+@font-face {
+    font-family: 'Niagato';
+    src: url(/font/Niagato.ttf);
+}
+
+:root
+{
+    --japanese-font: 'Yuji Syuku', serif;
+    --japanese-style-font: 'Harukaze';
+    --japanese-style-font-2: 'Karasha';
+    --japanese-style-font-3: 'Khiara';
+    --japanese-style-font-4: 'DersuUzalaBrush';
+    --japanese-style-font-5: 'Niagato';
+    --secondary-color: #b30000;
+}
+
+body
+{
+    font-family: var(--japanese-font);
+    margin: 0;
+    padding: 0;
+}
+
+/* Enlève la scrollbar */
+::-webkit-scrollbar
+{
+    display: none;
+}
+
+section,
+footer
+{
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+}
+
+/* ------------- Section - Intro ------------- */
+section#intro video
+{
+    width: 100vw;
+    position: relative;
+    z-index: -1;
+    filter: grayscale(100%);
+    opacity: .5;
+}
+
+section#intro::before /* Permet d'appliquer un dégradé de couleur par-dessus l'image pour faire une transition avec le bg de la section suivante */
+{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 20vh;
+    background: -webkit-linear-gradient( bottom , #fff, rgba(255, 255, 255, 0));
+    background: linear-gradient(to top, #fff, rgba(255, 255, 255, 0));
+    z-index: 0;
+}
+
+section#intro::after
+{
+    position: absolute;
+    content: "";
+    background-image: url(/img/scroll-down-computer-icon.gif);
+    opacity: .1;
+    z-index: 0;
+    bottom: 0;
+    left: calc((100vw - 75px) / 2); /* Centre parfaitement l'icône */
+    height: 75px;
+    width: 75px;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: cover;
+}
+
+
+.center-container
+{
+    position: absolute;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+section#intro .center-container p
+{
+    position: absolute;
+    font-family: var(--japanese-font);
+    font-size: 4rem;
+    color: #000;
+    writing-mode: vertical-lr;
+    text-orientation: upright;
+    display: flex;
+    align-items: center; /* Centre le before avec le texte */
+    z-index: 3; /* Passe devant le before */
+    white-space: nowrap;
+    padding-top: 45px;
+}
+
+section#intro .center-container p::before
+{
+    position: absolute;
+    content: "";
+    top: -10vh;
+    height: 120px;
+    width: 120px;
+    border-radius: 50%;
+    background-color: var(--secondary-color);
+    z-index: -1;
+}
+
+/* ------------- Section - Présentation ------------- */
+section#presentation
+{
+    background: url(/img/samurai.png);
+    background-position: left center;
+    background-repeat: no-repeat;
+    background-size: auto;
+}
+
+section#presentation .flex-container
+{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+section#presentation #red-circle
+{
+    position: relative;
+    background-color: var(--secondary-color);
+    width: 40vh;
+    height: 40vh;
+    border-radius: 50%;
+    z-index: -1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+section#presentation #red-circle #japan-country
+{
+    position: absolute;
+    background-image: url(/img/japan-country.png);
+    height: 80%;
+    width: 50%;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+section#presentation h1
+{
+    position: absolute;
+    margin: 0; /* Important de reset les margins pour pas fausser le calcul ci-dessous */
+    top: 5%;
+    left: calc((100vw - 625.31px) /2);
+    font-family: var(--japanese-style-font);
+    font-size: 6rem;
+    font-weight: 400;
+    letter-spacing: 5px;
+}
+
+/* ------------- Section - Mont Fuji ------------- */
+section#mont-fuji .background /* J'ai créé la div background pour lui appliquer les filters sans impacter les enfants */
+{
+    position: absolute;
+    inset: 0;
+    background-image: url(/img/fuji.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center 33%;
+    filter: grayscale(100%) brightness(150%);
+    z-index: -1;
+}
+
+section#mont-fuji .background::after /* Permet d'appliquer un dégradé de couleur par-dessus l'image pour faire une transition avec le bg de la section suivante */
+{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 20vh;
+    background: -webkit-linear-gradient( bottom , #000, rgba(0, 0, 0, 0));
+    background: linear-gradient(to top, #000, rgba(0, 0, 0, 0));
+}
+
+section#mont-fuji h2
+{
+    position: relative;
+    width: fit-content;
+    margin: 0 auto;
+    font-family: var(--japanese-style-font);
+    font-weight: 400;
+    font-size: 6rem;
+    color: var(--secondary-color);
+    letter-spacing: 5px;
+    z-index: 1;
+}
+
+section#mont-fuji h2::before
+{
+    position: absolute;
+    content: "";
+    border-top: 2px solid var(--secondary-color);
+    top: 60%;
+    left: -31.5vw;
+    width: 29vw;
+}
+
+section#mont-fuji h2::after
+{
+    position: absolute;
+    content: "";
+    border-top: 2px solid var(--secondary-color);
+    top: 60%;
+    right: -30vw;
+    width: 29vw;
+}
+
+section#mont-fuji #fuji-coordinates
+{
+    position: absolute;
+    top: 50%;
+    left: 2.5%;
+    color: grey;
+    font-family: 'Source Code Pro', monospace;
+    padding: 5px 20px;
+    border-radius: 50px;
+    margin: 0;
+}
+
+section#mont-fuji #fuji-coordinates::before
+{
+    position: absolute;
+    content: "";
+    height: 35px;
+    width: 35px;
+    top: calc((75px - 37px) /2 + 12.5px);
+    left: -25px;
+    background-image: url(/img/compass.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border: 1px solid rgba(142, 142, 142, 0.1);
+    box-shadow: 0px 0px 15px #d0d0d0;
+    border-radius: 50%;
+}
+
+section#mont-fuji #fuji-coordinates #altitude-text
+{
+    position: relative;
+    font-family: 'Source Code Pro', monospace;
+    font-size: 1rem;
+    color: var(--secondary-color);
+    padding-left: 10px;
+}
+
+section#mont-fuji #fuji-coordinates #altitude-text::before
+{
+    position: absolute;
+    content: "";
+    height: 15px;
+    width: 35px;
+    top: 4px;
+    left: 2px;
+    border-left: 2px solid var(--secondary-color);
+}
+
+section#mont-fuji .japanese-text
+{
+    position: absolute;
+    top: 50%;
+    /* top: calc(100vh - (192px / 2)); */
+    /* right: calc((100vw - 92px) / 2); */
+    right: 30%;
+    margin: 0;
+    font-family: var(--japanese-font);
+    font-size: 4rem;
+    color: var(--secondary-color);
+    writing-mode: vertical-lr;
+    text-orientation: upright;
+    white-space: nowrap;
+}
+
+/* ------------- Section - Follow-us ------------- */
+section#follow-us
+{
+    background: #000;
+}
+
+/* ------------- Section - Map ------------- */
+section#map
+{
+    background: #000;
+}
+
+section#map::after /* Permet d'appliquer un dégradé de couleur par-dessus l'image pour faire une transition avec le bg de la section suivante */
+{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 20vh;
+    background: -webkit-linear-gradient( bottom , var(--secondary-color), rgba(255, 255, 255, 0));
+    background: linear-gradient(to top, var(--secondary-color), rgba(255, 255, 255, 0));
+    z-index: 0;
+}
+
+/* ------------- Section - Go Further ------------- */
+footer#go-further
+{
+    background: var(--secondary-color);
+}
+
+/* ------------- MEDIA QUERIES ------------- */
+/* iPads */
+@media (max-width: 1050px)
+{
+    /* Section - Intro */
+    section#intro video /* Pour centrer la video je dois cacher le débordement et utiliser une margin négative */
+    {
+        height: 100vh;
+        width: unset;
+        overflow: hidden;
+        margin-left: -60%;
+    }
+
+    section#intro::after
+    {
+        left: calc((100vw - 50px) / 2); /* Centre parfaitement l'icône */
+        background-image: url(/img/scroll-down-mobile-icon.gif);
+        height: 50px;
+        width: 50px;
+        /* bottom: 5vh; */
+    }
+}
+
+/* iPhones */
+@media (max-width: 500px)
+{
+    /* Section - Intro */
+    section#intro video /* Pour centrer la video je dois cacher le débordement et utiliser une margin négative */
+    {
+        margin-left: -100%;
+    }
+
+    /* Section - Mont-fuji */    
+    section#mont-fuji #fuji-coordinates
+    {
+        padding-left: 0;
+    }
+
+    section#mont-fuji #fuji-coordinates::before
+    {
+        top: -35px;
+        left: 0;
+    }
+}
