@@ -83,7 +83,7 @@ section#intro::after
 {
     position: absolute;
     content: "";
-    background-image: url(/img/scroll-down-computer-icon.gif);
+    background-image: url(./img/scroll-down-computer-icon.gif);
     opacity: .1;
     z-index: 0;
     bottom: 0;
@@ -135,7 +135,7 @@ section#intro .center-container p::before
 /* ------------- Section - Présentation ------------- */
 section#presentation
 {
-    background: url(/img/samurai.png);
+    background: url(./img/samurai.png);
     background-position: left center;
     background-repeat: no-repeat;
     background-size: auto;
@@ -165,7 +165,7 @@ section#presentation #red-circle
 section#presentation #red-circle #japan-country
 {
     position: absolute;
-    background-image: url(/img/japan-country.png);
+    background-image: url(./img/japan-country.png);
     height: 80%;
     width: 50%;
     background-position: center;
@@ -190,7 +190,7 @@ section#mont-fuji .background /* J'ai créé la div background pour lui applique
 {
     position: absolute;
     inset: 0;
-    background-image: url(/img/fuji.jpg);
+    background-image: url(./img/fuji.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center 33%;
@@ -263,7 +263,7 @@ section#mont-fuji #fuji-coordinates::before
     width: 35px;
     top: calc((75px - 37px) /2 + 12.5px);
     left: -25px;
-    background-image: url(/img/compass.png);
+    background-image: url(./img/compass.png);
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -355,7 +355,7 @@ footer#go-further
     section#intro::after
     {
         left: calc((100vw - 50px) / 2); /* Centre parfaitement l'icône */
-        background-image: url(/img/scroll-down-mobile-icon.gif);
+        background-image: url(./img/scroll-down-mobile-icon.gif);
         height: 50px;
         width: 50px;
         /* bottom: 5vh; */
