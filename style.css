@@ -31,7 +31,7 @@
     --japanese-style-font-3: 'Khiara';
     --japanese-style-font-4: 'DersuUzalaBrush';
     --japanese-style-font-5: 'Niagato';
-    --secondary-color: #b30000;
+    --secondary-color: #ff0000;
 }
 
 body
@@ -42,10 +42,10 @@ body
 }
 
 /* Enlève la scrollbar */
-::-webkit-scrollbar
+/* ::-webkit-scrollbar
 {
     display: none;
-}
+} */
 
 section,
 footer
@@ -135,42 +135,18 @@ section#intro .center-container p::before
 /* ------------- Section - Présentation ------------- */
 section#presentation
 {
-    background: url(./img/samurai.png);
-    background-position: left center;
+    position: relative;
+    /* background: url(./test-img/samurai/samurai.png); */
+    /* background-position: right center;
     background-repeat: no-repeat;
-    background-size: auto;
+    background-size: auto; */
 }
 
 section#presentation .flex-container
 {
     height: 100%;
     display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-section#presentation #red-circle
-{
-    position: relative;
-    background-color: var(--secondary-color);
-    width: 40vh;
-    height: 40vh;
-    border-radius: 50%;
-    z-index: -1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-section#presentation #red-circle #japan-country
-{
-    position: absolute;
-    background-image: url(./img/japan-country.png);
-    height: 80%;
-    width: 50%;
-    background-position: center;
-    background-size: contain;
-    background-repeat: no-repeat;
+    flex-wrap: wrap;
 }
 
 section#presentation h1
@@ -184,6 +160,267 @@ section#presentation h1
     font-weight: 400;
     letter-spacing: 5px;
 }
+
+#left-geisha-image,
+#right-samurai-image
+{
+    display: flex;
+    align-items: center;
+    width: 48%;
+}
+
+#left-geisha-image
+{
+    justify-content: start;
+    align-items: start;
+    margin-left: 1%;
+    margin-top: 1%;
+}
+
+#right-samurai-image
+{
+    justify-content: end;
+    align-items: end;
+    margin-left: 1%;
+    margin-bottom: 1%;
+}
+
+#left-geisha-image img,
+#right-samurai-image img
+{
+    width: 50%;
+    border-radius: 50%;
+    z-index: 1;
+    border: 5px solid #fff;
+    outline: 5px solid red;
+}
+
+#seven-bushido-virtues
+{
+    position: absolute;
+    height: 50px;
+    width: 300px;
+    top: 25vh;
+    left: calc((100vw - 300px) /2);
+    text-align: center;
+    color: black;
+    font-size: 1.2rem;
+    font-weight: 600;
+    /* font-family: var(--japanese-style-font); */
+    z-index: 1;
+}
+
+/* #seven-bushido-virtues::before
+{
+    position: absolute;
+    content: "";
+    min-height: 500px;
+    width: 100%;
+    padding: 50px;
+    top: 25vh;
+    left: -50px;
+    background: blue;
+    z-index: -9999;
+} */
+
+@keyframes rotation
+{
+    0%
+    {
+        transform: rotate(0deg);
+    }
+    100%
+    {
+        transform: rotate(360deg);
+    }
+}
+
+section#presentation #circled-text
+{
+    position: absolute;
+    display: inline-block;
+    border: 2px solid var(--secondary-color);
+    height: 300px;
+    width: 300px;
+    top: calc((100% - 300px) /2);
+    left: calc((100% - 300px) /2);
+    border-radius: 50%;
+    /* background: #fff; */
+    animation: 40s linear infinite rotation;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 0;
+}
+
+section#presentation::after
+{
+    position: absolute;
+    content: "";
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    top: calc((100% - 200px) /2);
+    left: calc((100% - 200px) /2);
+    background: url(./test-img/yin-yang.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 25%;
+    opacity: .8;
+}
+
+section#presentation #circled-text span
+{
+    position: absolute;
+    left: 110px;
+    top: -27.5px;
+    height: 180px;
+    width: 85px;
+    background: #fff;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 2.5rem;
+    transform-origin: bottom center; /* On set le transform-origin en bas comme ca ils rotatent autour de ce point */
+    z-index: 0;
+}
+
+section#presentation #circled-text span::after
+{
+    position: absolute;
+    content: "";
+    font-size: 12px;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    top: 50px;
+    left: calc((100% - 50px) /2);
+    height: 50px;
+    width: 50px;
+    z-index: 0;
+}
+
+.char1
+{
+    transform: rotate(0deg);
+}
+
+.char1::after
+{
+    content: "Rectitude" !important;
+}
+  
+.char2
+{
+  transform: rotate(51deg);
+}
+
+.char2::after
+{
+    content: "Courage" !important;
+}
+  
+.char3
+{
+  transform: rotate(102deg);
+}
+
+.char3::after
+{
+    content: "Miséricorde" !important;
+}
+  
+.char4
+{
+  transform: rotate(153deg);
+}
+
+.char4::after
+{
+    content: "Respect" !important;
+}
+  
+.char5
+{
+  transform: rotate(204deg);
+}
+
+.char5::after
+{
+    content: "Honnêteté" !important;
+}
+  
+.char6
+{
+  transform: rotate(255deg);
+}
+
+.char6::after
+{
+    content: "Honneur" !important;
+}
+  
+.char7
+{
+  transform: rotate(306deg);
+}
+
+.char7::after
+{
+    content: "Loyauté" !important;
+}
+
+/* section#presentation #top-right-lines
+{
+    position: absolute;
+    border-left: 30px solid var(--secondary-color);
+    border-right: 20px solid var(--secondary-color);
+    height: 100%;
+    width: 2%;
+    top: -30%;
+    right: 13%;
+    z-index: 0;
+    transform: rotate(53deg);
+} */
+
+section#presentation #top-left-lines
+{
+    position: absolute;
+    border-left: 30px solid var(--secondary-color);
+    border-right: 20px solid var(--secondary-color);
+    height: 1000px;
+    width: 0.5%;
+    top: -30%;
+    left: 15%;
+    z-index: 0;
+    transform: rotate(45deg);
+}
+
+section#presentation #bottom-right-lines
+{
+    position: absolute;
+    border-left: 30px solid var(--secondary-color);
+    border-right: 20px solid var(--secondary-color);
+    height: 1000px;
+    width: 0.5%;
+    top: 15%;
+    right: 10%;
+    z-index: 0;
+    transform: rotate(45deg);
+}
+
+/* section#presentation #top-right-lines::after
+{
+    position: absolute;
+    content: "";
+    height: 140px;
+    width: 80px;
+    top: 90%;
+    right: 7px;
+    z-index: 0;
+    background: #fff;
+    border: 1px solid blue;
+    transform: rotate(-45deg);
+} */
 
 /* ------------- Section - Mont Fuji ------------- */
 section#mont-fuji .background /* J'ai créé la div background pour lui appliquer les filters sans impacter les enfants */
